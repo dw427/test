@@ -101,7 +101,7 @@
       height: 150px;
       background: #ffffff;
       position: relative;
-      z-index: 1000;
+      z-index: 1002; /* 슬라이드박스보다 위에 오도록 조정 */
     }
 
     .footer .left-link {
@@ -116,18 +116,13 @@
       text-decoration: none;
     }
 
-    .footer .list-btn,
-    .footer .close-btn {
+    .footer .list-btn {
       position: absolute;
       bottom: 10px;
       right: 10px;
       width: 14px;
       height: auto;
       cursor: pointer;
-    }
-
-    .footer .close-btn {
-      display: none;
     }
 
     .side-panel {
@@ -138,7 +133,7 @@
       height: 100vh;
       background-color: rgba(255, 255, 255, 0.7);
       box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1001;
+      z-index: 1001; /* footer보다 낮게 */
       transition: right 0.3s ease;
       padding: 20px;
       box-sizing: border-box;
@@ -207,8 +202,7 @@
         font-size: 12px;
       }
 
-      .footer .list-btn,
-      .footer .close-btn {
+      .footer .list-btn {
         bottom: 20px;
         width: 14px;
       }
@@ -240,10 +234,7 @@
     <div class="left-link">
       <a href="https://instagram.com/alfoxze" target="_blank">@alfoxze</a>
     </div>
-    <!-- 열기 버튼 -->
-    <img class="list-btn" src="images/list.png" alt="list 열기" id="listBtn" draggable="false" />
-    <!-- 닫기 버튼 -->
-    <img class="close-btn" src="images/list.png" alt="list 닫기" id="footerCloseBtn" draggable="false" />
+    <img class="list-btn" src="images/list.png" alt="list toggle" id="listBtn" draggable="false" />
   </div>
 
   <div class="side-panel" id="sidePanel">
@@ -295,19 +286,10 @@
     }
 
     const listBtn = document.getElementById('listBtn');
-    const footerCloseBtn = document.getElementById('footerCloseBtn');
     const sidePanel = document.getElementById('sidePanel');
 
     listBtn.addEventListener('click', () => {
-      sidePanel.classList.add('open');
-      listBtn.style.display = 'none';
-      footerCloseBtn.style.display = 'block';
-    });
-
-    footerCloseBtn.addEventListener('click', () => {
-      sidePanel.classList.remove('open');
-      footerCloseBtn.style.display = 'none';
-      listBtn.style.display = 'block';
+      sidePanel.classList.toggle('open');
     });
   </script>
 </body>
