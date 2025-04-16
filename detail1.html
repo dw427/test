@@ -6,8 +6,8 @@
   <title>alfoze</title>
   <style>
     @import url("https://use.typekit.net/zuk4pzv.css");
-    * { box-sizing: border-box; }
 
+    * { box-sizing: border-box; }
     html {
       scrollbar-gutter: stable;
     }
@@ -72,7 +72,7 @@
     .footer-bar {
       position: fixed;
       bottom: 20px;
-      right: 0;
+      left: 0;
       width: 100%;
       z-index: 1000;
       pointer-events: none;
@@ -87,8 +87,7 @@
       justify-content: flex-start;
       box-sizing: border-box;
       padding-left: 0;
-      padding-right: 20px;
-      position: relative;
+      padding-right: 0;
     }
 
     .footer-inner a {
@@ -96,101 +95,63 @@
     }
 
     .footer-inner img {
+      width: 10px;
       height: auto;
       margin-left: 20px;
       margin-right: 100px;
       pointer-events: auto;
     }
 
-    /* ✅ back.png만 10px로 */
-    .footer-inner img[src*="back.png"] {
-      width: 10px;
-    }
-
-    .footer-inner .text1 { margin-right: 50px; pointer-events: auto; }
-    .footer-inner .text2 { margin-right: 260px; pointer-events: auto; }
-    .footer-inner .text3 { margin-right: 400px; pointer-events: auto; }
-    .footer-inner .text4 { margin-right: auto; pointer-events: auto; }
-
-    .footer-inner .list-btn {
-      position: absolute;
-      right: 20px;
+    .footer-inner .text1 {
+      margin-right: 50px;
       pointer-events: auto;
-      cursor: pointer;
     }
 
-    .footer-inner .list-btn img {
-      width: 14px;
-      height: auto;
-      margin: 0;
+    .footer-inner .text2 {
+      margin-right: 260px;
+      pointer-events: auto;
     }
 
-    .side-panel {
-      position: fixed;
-      top: 0;
-      right: -610px;
-      width: 610px;
-      height: 100vh;
-      background-color: rgba(255, 255, 255, 0.7);
-      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-      z-index: 999;
-      transition: right 0.4s ease;
+    .footer-inner .text3 {
+      margin-right: 400px;
+      pointer-events: auto;
     }
 
-    .side-panel.open {
-      right: 0;
+    .footer-inner .text4 {
+      margin-right: 0;
+      pointer-events: auto;
     }
 
-    .panel-content {
-      padding: 40px;
-      overflow-y: auto;
-      height: 100%;
-    }
-
-    /* ✅ 모바일 반응형 푸터 수정 */
     @media (max-width: 768px) {
-      .header { height: 80px; }
-      .header img { height: 80px; }
-
-      .footer-inner {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        padding: 0 10px;
-        width: 100%;
-        max-width: 1920px;
-        margin: 0 auto;
-        box-sizing: border-box;
-        position: relative;
+      .header {
+        height: 80px;
       }
 
-      .footer-inner a {
-        margin-bottom: 5px;
-        flex-shrink: 0;
+      .header img {
+        height: 80px;
+      }
+
+      .footer-inner {
+        width: 100vw;
+        padding: 0 20px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .footer-inner img {
+        width: 10px;
+        margin-left: 0;
+        margin-right: 10px;
       }
 
       .footer-inner .text1,
       .footer-inner .text2,
       .footer-inner .text3,
       .footer-inner .text4 {
+        margin-right: 0;
         font-size: 10px;
         color: #a3a3a3;
-        margin: 0;
-        pointer-events: auto;
-      }
-
-      .footer-inner .text1 { margin-left: 10px; }
-      .footer-inner .text4 { margin-right: 10px; }
-
-      .footer-inner .text2,
-      .footer-inner .text3 {
-        flex-grow: 1;
-        text-align: center;
-      }
-
-      .footer-inner .list-btn {
-        margin-bottom: 5px;
-        flex-shrink: 0;
       }
     }
   </style>
@@ -217,23 +178,7 @@
       <span class="text2">brand design</span>
       <span class="text3">personal project</span>
       <span class="text4">2022</span>
-      <div class="list-btn" id="listBtn">
-        <img src="images/list.png" alt="list button" draggable="false" />
-      </div>
     </div>
   </div>
-
-  <div class="side-panel" id="sidePanel">
-    <div class="panel-content">
-      <h2>슬라이드 패널</h2>
-      <p>여기에 리스트 내용 삽입 가능</p>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('listBtn').addEventListener('click', function () {
-      document.getElementById('sidePanel').classList.toggle('open');
-    });
-  </script>
 </body>
 </html>
