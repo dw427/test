@@ -116,7 +116,8 @@
       text-decoration: none;
     }
 
-    .footer .list-btn {
+    .footer .list-btn,
+    .footer .close-btn {
       position: absolute;
       bottom: 10px;
       right: 10px;
@@ -125,13 +126,8 @@
       cursor: pointer;
     }
 
-    .footer .footer-close-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 40px;
-      width: 14px;
-      height: auto;
-      cursor: pointer;
+    .footer .close-btn {
+      display: none;
     }
 
     .side-panel {
@@ -150,14 +146,6 @@
 
     .side-panel.open {
       right: 0;
-    }
-
-    .side-panel .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 18px;
-      cursor: pointer;
     }
 
     @media (max-width: 1200px) {
@@ -220,7 +208,7 @@
       }
 
       .footer .list-btn,
-      .footer .footer-close-btn {
+      .footer .close-btn {
         bottom: 20px;
         width: 14px;
       }
@@ -228,7 +216,7 @@
       .side-panel {
         width: 100%;
         right: -100%;
-        background-color: rgba(255, 255, 255, 0.7); /* 반응형에서도 오퍼시티 유지 */
+        background-color: rgba(255, 255, 255, 0.7);
       }
 
       .side-panel.open {
@@ -252,12 +240,13 @@
     <div class="left-link">
       <a href="https://instagram.com/alfoxze" target="_blank">@alfoxze</a>
     </div>
-    <img class="footer-close-btn" src="images/list.png" alt="닫기" id="footerCloseBtn" draggable="false" />
-    <img class="list-btn" src="images/list.png" alt="list" id="listBtn" draggable="false" />
+    <!-- 열기 버튼 -->
+    <img class="list-btn" src="images/list.png" alt="list 열기" id="listBtn" draggable="false" />
+    <!-- 닫기 버튼 -->
+    <img class="close-btn" src="images/list.png" alt="list 닫기" id="footerCloseBtn" draggable="false" />
   </div>
 
   <div class="side-panel" id="sidePanel">
-    <div class="close-btn" id="closePanel">✕</div>
     <h3>슬라이드 박스</h3>
     <p>여기에 원하는 내용을 넣으세요.</p>
   </div>
@@ -306,20 +295,19 @@
     }
 
     const listBtn = document.getElementById('listBtn');
-    const sidePanel = document.getElementById('sidePanel');
-    const closePanelBtn = document.getElementById('closePanel');
     const footerCloseBtn = document.getElementById('footerCloseBtn');
+    const sidePanel = document.getElementById('sidePanel');
 
-    listBtn.addEventListener('click', function () {
-      sidePanel.classList.toggle('open');
+    listBtn.addEventListener('click', () => {
+      sidePanel.classList.add('open');
+      listBtn.style.display = 'none';
+      footerCloseBtn.style.display = 'block';
     });
 
-    closePanelBtn.addEventListener('click', function () {
+    footerCloseBtn.addEventListener('click', () => {
       sidePanel.classList.remove('open');
-    });
-
-    footerCloseBtn.addEventListener('click', function () {
-      sidePanel.classList.remove('open');
+      footerCloseBtn.style.display = 'none';
+      listBtn.style.display = 'block';
     });
   </script>
 </body>
