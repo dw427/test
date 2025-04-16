@@ -125,6 +125,15 @@
       cursor: pointer;
     }
 
+    .footer .footer-close-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 40px;
+      width: 14px;
+      height: auto;
+      cursor: pointer;
+    }
+
     .side-panel {
       position: fixed;
       top: 0;
@@ -133,7 +142,7 @@
       height: 100vh;
       background-color: rgba(255, 255, 255, 0.7);
       box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 999;
+      z-index: 1001;
       transition: right 0.3s ease;
       padding: 20px;
       box-sizing: border-box;
@@ -210,10 +219,20 @@
         font-size: 12px;
       }
 
-      .footer .list-btn {
+      .footer .list-btn,
+      .footer .footer-close-btn {
         bottom: 20px;
-        right: 10px;
         width: 14px;
+      }
+
+      .side-panel {
+        width: 100%;
+        right: -100%;
+        background-color: rgba(255, 255, 255, 0.7); /* 반응형에서도 오퍼시티 유지 */
+      }
+
+      .side-panel.open {
+        right: 0;
       }
     }
   </style>
@@ -233,6 +252,7 @@
     <div class="left-link">
       <a href="https://instagram.com/alfoxze" target="_blank">@alfoxze</a>
     </div>
+    <img class="footer-close-btn" src="images/list.png" alt="닫기" id="footerCloseBtn" draggable="false" />
     <img class="list-btn" src="images/list.png" alt="list" id="listBtn" draggable="false" />
   </div>
 
@@ -285,12 +305,21 @@
       gallery.appendChild(item);
     }
 
-    document.getElementById('listBtn').addEventListener('click', function () {
-      document.getElementById('sidePanel').classList.add('open');
+    const listBtn = document.getElementById('listBtn');
+    const sidePanel = document.getElementById('sidePanel');
+    const closePanelBtn = document.getElementById('closePanel');
+    const footerCloseBtn = document.getElementById('footerCloseBtn');
+
+    listBtn.addEventListener('click', function () {
+      sidePanel.classList.toggle('open');
     });
 
-    document.getElementById('closePanel').addEventListener('click', function () {
-      document.getElementById('sidePanel').classList.remove('open');
+    closePanelBtn.addEventListener('click', function () {
+      sidePanel.classList.remove('open');
+    });
+
+    footerCloseBtn.addEventListener('click', function () {
+      sidePanel.classList.remove('open');
     });
   </script>
 </body>
