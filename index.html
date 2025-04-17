@@ -7,30 +7,36 @@
   <style>
     @import url("https://use.typekit.net/zuk4pzv.css");
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: "minion-pro", serif;
       background: #ffffff;
     }
+
     a {
       color: inherit;
       text-decoration: none;
       transition: color 0.3s;
     }
+
     a:hover {
       color: #a3a3a3;
     }
+
     .container {
       display: flex;
       justify-content: center;
       padding: 0;
     }
+
     .content {
       display: grid;
       grid-template-columns: repeat(3, 250px);
       column-gap: 10px;
       row-gap: 13px;
     }
+
     .thumbnail {
       display: flex;
       flex-direction: column;
@@ -38,6 +44,7 @@
       text-decoration: none;
       color: inherit;
     }
+
     .thumbnail img {
       width: 250px;
       height: 250px;
@@ -45,19 +52,31 @@
       display: block;
       transition: transform 0.3s ease;
     }
+
     @media (min-width: 769px) {
       .thumbnail:hover img {
         transform: scale(1.05);
       }
     }
+
     .caption {
       display: flex;
       margin-top: 13px;
       font-size: 12px;
     }
-    .caption .title { margin-right: 20px; }
-    .caption .category { margin-right: 60px; }
-    .side { width: 575px; }
+
+    .caption .title {
+      margin-right: 20px;
+    }
+
+    .caption .category {
+      margin-right: 60px;
+    }
+
+    .side {
+      width: 575px;
+    }
+
     .header {
       width: 100%;
       height: 150px;
@@ -69,10 +88,12 @@
       top: 0;
       z-index: 1000;
     }
+
     .header img {
       height: 100%;
       width: auto;
     }
+
     .footer {
       width: 100%;
       height: 150px;
@@ -80,18 +101,21 @@
       position: relative;
       z-index: 10;
     }
+
     .footer .right-link {
       position: absolute;
       bottom: 10px;
       left: 30px;
       font-size: 12px;
     }
+
     .footer .contact-link {
       position: absolute;
       bottom: 10px;
       left: 170px;
       font-size: 12px;
     }
+
     .footer #listButton {
       position: absolute;
       bottom: 10px;
@@ -100,14 +124,16 @@
       cursor: pointer;
       transition: color 0.3s;
     }
+
     .footer #listButton:hover {
       color: #a3a3a3;
     }
+
     .slide-box {
       position: fixed;
       top: 0;
       right: 0;
-      width: 450px !important;
+      width: 770px !important;
       height: 100%;
       background-color: rgba(255, 255, 255, 0.7);
       z-index: 3000;
@@ -115,9 +141,11 @@
       transition: transform 0.3s ease-in-out;
       overflow-y: auto;
     }
+
     .slide-box.active {
       transform: translateX(0%);
     }
+
     .slide-box .slide-list {
       position: absolute;
       bottom: 10px;
@@ -127,21 +155,30 @@
       z-index: 4001;
       transition: color 0.3s;
     }
+
     .slide-box .slide-list:hover {
       color: #a3a3a3;
     }
+
     .text-group {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       margin-bottom: 13px;
       font-size: 12px;
-      padding: 0 20px;
-      white-space: nowrap;
-      overflow: hidden;
+      padding: 0;
     }
-    .text1 { margin-right: 30px; flex-shrink: 1; min-width: 0; }
-    .text2 { margin-right: 25px; flex-shrink: 1; min-width: 0; }
-    .text3 { margin-left: 30px; flex-shrink: 1; min-width: 0; }
+
+    .text1 {
+      margin-right: 20px;
+    }
+
+    .text2 {
+      margin-right: 60px;
+    }
+
+    .text3 {
+      margin-left: auto;
+    }
 
     #slideContent {
       padding-top: 13px;
@@ -222,78 +259,5 @@
 
   <div class="slide-box" id="slideBox">
     <div class="slide-list" onclick="toggleSlideBox()">list</div>
-    <div id="slideContent"></div> <!-- ✅ 오류 해결 핵심 라인 -->
+    <div id="slideContent"></div>
   </div>
-
-  <script>
-    const titles = [
-      "te cura", "lost romance", "blish", 
-      "An inverted realtionship", "Immortality : The Death of Death", "Heaven", 
-      "Everybody", "Ideal Expression", "Monster", 
-      "alfoze", "Valentine"
-    ];
-    const categories = [
-      "brand design", "graphic design", "brand design", 
-      "editorial", "brand design", "graphic design", 
-      "graphic design", "graphic design", "graphic design", 
-      "brand design", "graphic design"
-    ];
-    const years = [
-      "2022", "2023", "2023", 
-      "2023", "2024", "2024", 
-      "2024", "2024", "2024", 
-      "2025", "2025"
-    ];
-
-    const gallery = document.getElementById('gallery');
-
-    for (let i = titles.length; i >= 1; i--) {
-      const index = i;
-      const item = document.createElement('a');
-      item.href = `detail${index}.html`;
-      item.className = `thumbnail thumb${index}`;
-      item.innerHTML = `
-        <img src="images/thumb${index}.png" alt="썸네일${index}" />
-        <div class="caption caption-thumb${index}">
-          <span class="title">${titles[i - 1]}</span>
-          <span class="category">${categories[i - 1]}</span>
-          <span class="year">${years[i - 1]}</span>
-        </div>
-      `;
-      gallery.appendChild(item);
-    }
-
-    function toggleSlideBox() {
-      const slideBox = document.getElementById("slideBox");
-      slideBox.classList.toggle("active");
-    }
-
-    const slideData = [
-      ["te cura", "brand design", "2022"],
-      ["a generation that has lost romance", "graphic design", "2023"],
-      ["blish", "brand design", "2023"],
-      ["An inverted realtionship", "editorial", "2023"],
-      ["Immortality : The Death of Death", "brand design", "2024"],
-      ["Heaven", "graphic design", "2024"],
-      ["Everybody", "graphic design", "2024"],
-      ["Ideal Expression", "graphic design", "2024"],
-      ["Monster", "graphic design", "2024"],
-      ["alfoze", "brand design", "2025"],
-      ["Valentine", "graphic design", "2025"]
-    ];
-
-    const slideContent = document.getElementById("slideContent");
-
-    slideData.forEach(([text1, text2, text3]) => {
-      const group = document.createElement("div");
-      group.className = "text-group";
-      group.innerHTML = `
-        <div class="text1">${text1}</div>
-        <div class="text2">${text2}</div>
-        <div class="text3">${text3}</div>
-      `;
-      slideContent.appendChild(group);
-    });
-  </script>
-</body>
-</html>
