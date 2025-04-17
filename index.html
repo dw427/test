@@ -28,12 +28,8 @@
 
     #listButton {
       position: fixed;
-      bottom: 0;
+      bottom: 10px;
       right: 30px;
-      height: 150px;
-      display: flex;
-      align-items: flex-end;
-      padding-bottom: 10px;
       font-size: 12px;
       cursor: pointer;
       z-index: 9999;
@@ -232,10 +228,9 @@
       }
 
       #listButton {
-        bottom: 0;
-        height: 80px;
-        padding-bottom: 20px;
+        bottom: 20px;
         right: 20px;
+        height: auto;
       }
 
       .slide-box {
@@ -264,7 +259,7 @@
     </div>
   </div>
 
-  <!-- ✅ list 버튼: footer 위치에 고정, slide-box보다 위, scroll 안 따라감 -->
+  <!-- ✅ list 버튼: 고정된 위치 + 슬라이드박스보다 위 -->
   <div id="listButton" onclick="toggleSlideBox()">list</div>
 
   <div class="slide-box" id="slideBox">
