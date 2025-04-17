@@ -163,10 +163,18 @@
 
     .text-group {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       margin-bottom: 13px;
       font-size: 12px;
       padding: 0 20px;
+    }
+
+    .text-group div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
 
     .text1 {
@@ -277,6 +285,8 @@
   </div>
 
   <script>
+    const gallery = document.getElementById('gallery');
+
     const titles = [
       "te cura", "lost romance", "blish", 
       "An inverted realtionship", "Immortality : The Death of Death", "Heaven", 
@@ -297,8 +307,6 @@
       "2024", "2024", "2024", 
       "2025", "2025"
     ];
-
-    const gallery = document.getElementById('gallery');
 
     for (let i = titles.length; i >= 1; i--) {
       const index = i;
