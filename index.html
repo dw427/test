@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>alfoze</title>
-
   <style>
     @import url("https://use.typekit.net/zuk4pzv.css");
 
@@ -22,22 +21,7 @@
       transition: color 0.3s;
     }
 
-    a:hover {
-      color: #a3a3a3;
-    }
-
-    #listButton {
-      position: fixed;
-      bottom: 10px;
-      right: 30px;
-      font-size: 12px;
-      cursor: pointer;
-      z-index: 4000;
-      color: inherit;
-      background: transparent;
-      transition: color 0.3s;
-    }
-
+    a:hover,
     #listButton:hover {
       color: #a3a3a3;
     }
@@ -45,7 +29,6 @@
     .container {
       display: flex;
       justify-content: center;
-      background-color: #ffffff;
     }
 
     .content {
@@ -53,15 +36,12 @@
       grid-template-columns: repeat(3, 250px);
       column-gap: 10px;
       row-gap: 13px;
-      background-color: #ffffff;
     }
 
     .thumbnail {
       display: flex;
       flex-direction: column;
       width: 250px;
-      text-align: left;
-      text-decoration: none;
       color: inherit;
     }
 
@@ -81,11 +61,8 @@
 
     .caption {
       display: flex;
-      flex-direction: row;
-      align-items: flex-start;
       margin-top: 13px;
       font-size: 12px;
-      line-height: 12px;
       background-color: #ffffff;
     }
 
@@ -99,7 +76,6 @@
 
     .side {
       width: 575px;
-      background-color: #ffffff;
     }
 
     .header {
@@ -141,6 +117,25 @@
       font-size: 12px;
     }
 
+    /* ✅ 기본 상태: footer 내부, scroll 따라감 */
+    #listButton {
+      position: absolute;
+      bottom: 10px;
+      right: 30px;
+      font-size: 12px;
+      cursor: pointer;
+      z-index: 10;
+      transition: color 0.3s;
+    }
+
+    /* ✅ 슬라이드박스 열릴 때만 위로 띄움 */
+    #listButton.active {
+      position: fixed !important;
+      bottom: 10px !important;
+      right: 30px !important;
+      z-index: 4000 !important;
+    }
+
     .slide-box {
       position: fixed;
       top: 0;
@@ -155,64 +150,6 @@
 
     .slide-box.active {
       transform: translateX(0%);
-    }
-
-    @media (max-width: 1200px) {
-      .content { grid-template-columns: repeat(2, 250px); }
-    }
-
-    @media (max-width: 768px) {
-      .side { display: none; }
-      .content {
-        grid-template-columns: 1fr;
-        row-gap: 13px;
-      }
-
-      .thumbnail img {
-        width: 100%;
-        height: auto;
-      }
-
-      .caption {
-        font-size: 12px;
-      }
-
-      .caption .title {
-        margin-left: 10px;
-        margin-right: 45px;
-      }
-
-      .caption .year {
-        margin-left: auto;
-        margin-right: 10px;
-      }
-
-      .header {
-        height: 80px;
-      }
-
-      .footer {
-        height: 80px;
-      }
-
-      .footer .right-link {
-        bottom: 20px;
-        left: 20px;
-      }
-
-      .footer .contact-link {
-        bottom: 20px;
-        left: 160px;
-      }
-
-      #listButton {
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .slide-box {
-        width: 100%;
-      }
     }
   </style>
 </head>
@@ -234,54 +171,46 @@
     <div class="contact-link">
       <a href="mailto:uxxwd9@gmail.com">contact</a>
     </div>
+    <div id="listButton" onclick="toggleSlideBox()">list</div>
   </div>
 
-  <!-- ✅ list 버튼: footer 자리에 딱 붙어 있고, slide-box 위에 뜸 -->
-  <div id="listButton" onclick="toggleSlideBox()">list</div>
-
   <div class="slide-box" id="slideBox">
-    <!-- 슬라이드 콘텐츠 -->
+    <!-- 내용 넣기 -->
   </div>
 
   <script>
+    const gallery = document.getElementById('gallery');
     const titles = [
-      "te cura", "lost romance", "blish", 
-      "An inverted realtionship", "Immortality : The Death of Death", "Heaven", 
-      "Everybody", "Ideal Expression", "Monster", 
-      "alfoze", "Valentine"
+      "te cura", "lost romance", "blish", "An inverted realtionship",
+      "Immortality : The Death of Death", "Heaven", "Everybody",
+      "Ideal Expression", "Monster", "alfoze",
+      "Valentine", "Forever", "Lov"
     ];
 
     const categories = [
-      "brand design", "graphic design", "brand design", 
-      "editorial", "brand design", "graphic design", 
-      "graphic design", "graphic design", "graphic design", 
-      "brand design", "graphic design"
+      "brand design", "graphic design", "brand design", "editorial",
+      "brand design", "graphic design", "graphic design",
+      "graphic design", "graphic design", "brand design",
+      "graphic design", "graphic design", "brand design"
     ];
 
     const years = [
-      "2022", "2023", "2023", 
-      "2023", "2024", "2024", 
-      "2024", "2024", "2024", 
-      "2025", "2025"
+      "2022", "2023", "2023", "2023",
+      "2024", "2024", "2024", "2024",
+      "2024", "2025", "2025", "2025", "2025"
     ];
-
-    const gallery = document.getElementById('gallery');
 
     for (let i = titles.length; i >= 1; i--) {
       const index = i;
-      const title = titles[i - 1];
-      const category = categories[i - 1];
-      const year = years[i - 1];
-
       const item = document.createElement('a');
       item.href = `detail${index}.html`;
       item.className = `thumbnail thumb${index}`;
       item.innerHTML = `
         <img src="images/thumb${index}.png" alt="썸네일${index}" />
         <div class="caption caption-thumb${index}">
-          <span class="title">${title}</span>
-          <span class="category">${category}</span>
-          <span class="year">${year}</span>
+          <span class="title">${titles[i - 1]}</span>
+          <span class="category">${categories[i - 1]}</span>
+          <span class="year">${years[i - 1]}</span>
         </div>
       `;
       gallery.appendChild(item);
@@ -289,7 +218,9 @@
 
     function toggleSlideBox() {
       const slideBox = document.getElementById("slideBox");
+      const listBtn = document.getElementById("listButton");
       slideBox.classList.toggle("active");
+      listBtn.classList.toggle("active"); // ✅ slide 위로 띄우거나 복귀
     }
   </script>
 </body>
