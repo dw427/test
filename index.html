@@ -169,22 +169,12 @@
       padding: 0 20px;
     }
 
-    .text1 {
-      margin-right: 30px;
+    .text1, .text2, .text3 {
       white-space: nowrap;
       flex-shrink: 1;
-    }
-
-    .text2 {
-      margin-right: 25px;
-      white-space: nowrap;
-      flex-shrink: 1;
-    }
-
-    .text3 {
-      margin-left: 30px;
-      white-space: nowrap;
-      flex-shrink: 1;
+      min-width: 0;
+      max-width: 33.33%;
+      overflow: hidden;
     }
 
     #slideContent {
@@ -252,6 +242,11 @@
       .slide-box .slide-list {
         bottom: 20px;
         right: 20px;
+      }
+
+      .text1, .text2, .text3 {
+        min-width: 0;
+        max-width: 33.33%;
       }
     }
   </style>
