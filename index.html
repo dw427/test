@@ -32,9 +32,9 @@
       right: 30px;
       font-size: 12px;
       cursor: pointer;
-      z-index: 9999;
-      background: transparent;
+      z-index: 4000;
       color: inherit;
+      background: transparent;
       transition: color 0.3s;
     }
 
@@ -45,7 +45,6 @@
     .container {
       display: flex;
       justify-content: center;
-      padding: 0;
       background-color: #ffffff;
     }
 
@@ -54,7 +53,6 @@
       grid-template-columns: repeat(3, 250px);
       column-gap: 10px;
       row-gap: 13px;
-      margin-top: 0;
       background-color: #ffffff;
     }
 
@@ -119,7 +117,6 @@
     .header img {
       height: 100%;
       width: auto;
-      max-height: 100%;
     }
 
     .footer {
@@ -128,10 +125,6 @@
       background: #ffffff;
       position: relative;
       z-index: 10;
-    }
-
-    .footer .center-text {
-      display: none;
     }
 
     .footer .right-link {
@@ -170,33 +163,18 @@
 
     @media (max-width: 768px) {
       .side { display: none; }
-      .container { padding: 0; }
-
       .content {
         grid-template-columns: 1fr;
-        padding: 0;
         row-gap: 13px;
-        background-color: #ffffff;
-      }
-
-      .thumbnail {
-        width: 100%;
       }
 
       .thumbnail img {
-        display: block;
         width: 100%;
         height: auto;
       }
 
       .caption {
-        display: flex;
-        align-items: flex-start;
-        margin-top: 13px;
         font-size: 12px;
-        line-height: 12px;
-        background-color: #ffffff;
-        width: 100%;
       }
 
       .caption .title {
@@ -230,7 +208,6 @@
       #listButton {
         bottom: 20px;
         right: 20px;
-        height: auto;
       }
 
       .slide-box {
@@ -259,11 +236,11 @@
     </div>
   </div>
 
-  <!-- ✅ list 버튼: 고정된 위치 + 슬라이드박스보다 위 -->
+  <!-- ✅ list 버튼: footer 자리에 딱 붙어 있고, slide-box 위에 뜸 -->
   <div id="listButton" onclick="toggleSlideBox()">list</div>
 
   <div class="slide-box" id="slideBox">
-    <!-- 슬라이딩 콘텐츠 추가 가능 -->
+    <!-- 슬라이드 콘텐츠 -->
   </div>
 
   <script>
