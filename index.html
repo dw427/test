@@ -134,7 +134,7 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 450px !important;
+      width: 400px !important;
       height: 100%;
       background-color: rgba(255, 255, 255, 0.7);
       z-index: 3000;
@@ -163,10 +163,18 @@
 
     .text-group {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       margin-bottom: 13px;
-      font-size: 12px;
+      font-size: 14px;
       padding: 0 20px;
+    }
+
+    .text-group div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
 
     .text1 {
@@ -277,42 +285,24 @@
   </div>
 
   <script>
-    const titles = [
-      "te cura", "lost romance", "blish", 
-      "An inverted realtionship", "Immortality : The Death of Death", "Heaven", 
-      "Everybody", "Ideal Expression", "Monster", 
-      "alfoze", "Valentine"
-    ];
-
-    const categories = [
-      "brand design", "graphic design", "brand design", 
-      "editorial", "brand design", "graphic design", 
-      "graphic design", "graphic design", "graphic design", 
-      "brand design", "graphic design"
-    ];
-
-    const years = [
-      "2022", "2023", "2023", 
-      "2023", "2024", "2024", 
-      "2024", "2024", "2024", 
-      "2025", "2025"
-    ];
+    const titles = [...];
+    const categories = [...];
+    const years = [...];
 
     const gallery = document.getElementById('gallery');
-
     for (let i = titles.length; i >= 1; i--) {
       const index = i;
       const item = document.createElement('a');
-      item.href = detail${index}.html;
-      item.className = thumbnail thumb${index};
-      item.innerHTML = 
+      item.href = `detail${index}.html`;
+      item.className = `thumbnail thumb${index}`;
+      item.innerHTML = `
         <img src="images/thumb${index}.png" alt="썸네일${index}" />
         <div class="caption caption-thumb${index}">
           <span class="title">${titles[i - 1]}</span>
           <span class="category">${categories[i - 1]}</span>
           <span class="year">${years[i - 1]}</span>
         </div>
-      ;
+      `;
       gallery.appendChild(item);
     }
 
@@ -322,29 +312,19 @@
     }
 
     const slideData = [
-      ["te cura", "brand design", "2022"],
-      ["a generation that has lost romance", "graphic design", "2023"],
-      ["blish", "brand design", "2023"],
-      ["An inverted realtionship", "editorial", "2023"],
-      ["Immortality : The Death of Death", "brand design", "2024"],
-      ["Heaven", "graphic design", "2024"],
-      ["Everybody", "graphic design", "2024"],
-      ["Ideal Expression", "graphic design", "2024"],
-      ["Monster", "graphic design", "2024"],
-      ["alfoze", "brand design", "2025"],
-      ["Valentine", "graphic design", "2025"]
+      ["텍스트1", "텍스트2", "텍스트3"],
+      ...
     ];
 
     const slideContent = document.getElementById("slideContent");
-
     slideData.forEach(([text1, text2, text3]) => {
       const group = document.createElement("div");
       group.className = "text-group";
-      group.innerHTML = 
+      group.innerHTML = `
         <div class="text1">${text1}</div>
         <div class="text2">${text2}</div>
         <div class="text3">${text3}</div>
-      ;
+      `;
       slideContent.appendChild(group);
     });
   </script>
