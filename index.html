@@ -22,7 +22,21 @@
       transition: color 0.3s;
     }
 
-    a:hover,
+    a:hover {
+      color: #a3a3a3;
+    }
+
+    #listButton {
+      position: fixed;
+      bottom: 10px;
+      right: 30px;
+      font-size: 12px;
+      cursor: pointer;
+      z-index: 9999;
+      color: inherit;
+      transition: color 0.3s;
+    }
+
     #listButton:hover {
       color: #a3a3a3;
     }
@@ -133,16 +147,6 @@
       font-size: 12px;
     }
 
-    #listButton {
-      position: absolute;
-      bottom: 10px;
-      right: 30px;
-      font-size: 12px;
-      cursor: pointer;
-      z-index: 3001;
-      background: transparent;
-    }
-
     .slide-box {
       position: fixed;
       top: 0;
@@ -251,8 +255,10 @@
     <div class="contact-link">
       <a href="mailto:uxxwd9@gmail.com">contact</a>
     </div>
-    <div id="listButton" onclick="toggleSlideBox()">list</div>
   </div>
+
+  <!-- ✅ list 버튼은 화면에 고정되면서 slide-box 위에 항상 뜸 -->
+  <div id="listButton" onclick="toggleSlideBox()">list</div>
 
   <div class="slide-box" id="slideBox">
     <!-- 슬라이딩 콘텐츠 추가 가능 -->
