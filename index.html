@@ -6,6 +6,7 @@
   <title>test</title>
   <style>
     @import url("https://use.typekit.net/zuk4pzv.css");
+
     * { box-sizing: border-box; }
 
     body {
@@ -65,10 +66,17 @@
       font-size: 12px;
     }
 
-    .caption .title { margin-right: 20px; }
-    .caption .category { margin-right: 60px; }
+    .caption .title {
+      margin-right: 20px;
+    }
 
-    .side { width: 575px; }
+    .caption .category {
+      margin-right: 60px;
+    }
+
+    .side {
+      width: 575px;
+    }
 
     .header {
       width: 100%;
@@ -126,7 +134,7 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 770px !important;
+      width: 400px !important;
       height: 100%;
       background-color: rgba(255, 255, 255, 0.7);
       z-index: 3000;
@@ -155,15 +163,23 @@
 
     .text-group {
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       margin-bottom: 13px;
-      font-size: 12px;
-      padding: 0;
+      font-size: 14px;
+      padding: 0 20px;
     }
 
-    .text1 { margin-right: 20px; }
-    .text2 { margin-right: 60px; }
-    .text3 { margin-left: auto; }
+    .text1 {
+      margin-right: 30px;
+    }
+
+    .text2 {
+      margin-right: 25px;
+    }
+
+    .text3 {
+      margin-left: 30px;
+    }
 
     #slideContent {
       padding-top: 13px;
@@ -224,7 +240,7 @@
       }
 
       .slide-box {
-        width: 100% !important; /* ✅ 모바일 대응 */
+        width: 100%;
       }
 
       .slide-box .slide-list {
