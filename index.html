@@ -23,7 +23,7 @@
     }
 
     a:hover,
-    .list-button:hover {
+    #listButton:hover {
       color: #a3a3a3;
     }
 
@@ -133,14 +133,14 @@
       font-size: 12px;
     }
 
-    .footer .list-button {
-      position: absolute;
+    #listButton {
+      position: fixed;
       bottom: 10px;
       right: 30px;
       font-size: 12px;
       cursor: pointer;
-      z-index: 3001;
-      transition: color 0.3s;
+      z-index: 4000;
+      background: transparent;
     }
 
     .slide-box {
@@ -222,7 +222,7 @@
         left: 160px;
       }
 
-      .footer .list-button {
+      #listButton {
         bottom: 20px;
         right: 20px;
       }
@@ -251,8 +251,10 @@
     <div class="contact-link">
       <a href="mailto:uxxwd9@gmail.com">contact</a>
     </div>
-    <div class="list-button" onclick="toggleSlideBox()">list</div>
   </div>
+
+  <!-- list 버튼: 슬라이드박스보다 위에 고정됨 -->
+  <div id="listButton" onclick="toggleSlideBox()">list</div>
 
   <div class="slide-box" id="slideBox">
     <!-- 슬라이딩 콘텐츠 추가 가능 -->
