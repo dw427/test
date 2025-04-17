@@ -21,14 +21,14 @@
       transition: color 0.3s;
     }
 
-    a:hover,
-    #listButton:hover {
+    a:hover {
       color: #a3a3a3;
     }
 
     .container {
       display: flex;
       justify-content: center;
+      padding: 0;
     }
 
     .content {
@@ -42,6 +42,7 @@
       display: flex;
       flex-direction: column;
       width: 250px;
+      text-decoration: none;
       color: inherit;
     }
 
@@ -63,7 +64,6 @@
       display: flex;
       margin-top: 13px;
       font-size: 12px;
-      background-color: #ffffff;
     }
 
     .caption .title {
@@ -117,23 +117,17 @@
       font-size: 12px;
     }
 
-    /* ✅ 기본 상태: footer 내부, scroll 따라감 */
-    #listButton {
+    .footer #listButton {
       position: absolute;
       bottom: 10px;
       right: 30px;
       font-size: 12px;
       cursor: pointer;
-      z-index: 10;
       transition: color 0.3s;
     }
 
-    /* ✅ 슬라이드박스 열릴 때만 위로 띄움 */
-    #listButton.active {
-      position: fixed !important;
-      bottom: 10px !important;
-      right: 30px !important;
-      z-index: 4000 !important;
+    .footer #listButton:hover {
+      color: #a3a3a3;
     }
 
     .slide-box {
@@ -150,6 +144,84 @@
 
     .slide-box.active {
       transform: translateX(0%);
+    }
+
+    .slide-box .slide-list {
+      position: absolute;
+      bottom: 10px;
+      right: 30px;
+      font-size: 12px;
+      cursor: pointer;
+      z-index: 4001;
+      transition: color 0.3s;
+    }
+
+    .slide-box .slide-list:hover {
+      color: #a3a3a3;
+    }
+
+    @media (max-width: 768px) {
+      .side { display: none; }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .thumbnail {
+        width: 100%;
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: auto;
+      }
+
+      .caption {
+        font-size: 12px;
+        width: 100%;
+      }
+
+      .caption .title {
+        margin-left: 10px;
+        margin-right: 45px;
+      }
+
+      .caption .year {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+
+      .header {
+        height: 80px;
+      }
+
+      .footer {
+        height: 80px;
+      }
+
+      .footer .right-link {
+        bottom: 20px;
+        left: 20px;
+      }
+
+      .footer .contact-link {
+        bottom: 20px;
+        left: 160px;
+      }
+
+      .footer #listButton {
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .slide-box {
+        width: 100%;
+      }
+
+      .slide-box .slide-list {
+        bottom: 20px;
+        right: 20px;
+      }
     }
   </style>
 </head>
@@ -175,11 +247,11 @@
   </div>
 
   <div class="slide-box" id="slideBox">
-    <!-- 내용 넣기 -->
+    <div class="slide-list" onclick="toggleSlideBox()">list</div>
+    <!-- 슬라이드 안 내용 필요 시 추가 -->
   </div>
 
   <script>
-    const gallery = document.getElementById('gallery');
     const titles = [
       "te cura", "lost romance", "blish", "An inverted realtionship",
       "Immortality : The Death of Death", "Heaven", "Everybody",
@@ -200,6 +272,8 @@
       "2024", "2025", "2025", "2025", "2025"
     ];
 
+    const gallery = document.getElementById('gallery');
+
     for (let i = titles.length; i >= 1; i--) {
       const index = i;
       const item = document.createElement('a');
@@ -218,9 +292,7 @@
 
     function toggleSlideBox() {
       const slideBox = document.getElementById("slideBox");
-      const listBtn = document.getElementById("listButton");
       slideBox.classList.toggle("active");
-      listBtn.classList.toggle("active"); // ✅ slide 위로 띄우거나 복귀
     }
   </script>
 </body>
