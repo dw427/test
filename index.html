@@ -164,18 +164,26 @@
 
     .text-group {
       display: flex;
-      justify-content: space-between;
-      padding: 10px 20px;
+      padding: 10px 0;
       font-size: 12px;
       white-space: nowrap;
       overflow: hidden;
-      gap: 20px;
+      width: 100%;
     }
 
-    .text1, .text2, .text3 {
-      flex: 1 1 0;
-      min-width: 0;
-      overflow: hidden;
+    .text1 {
+      margin-left: 30px;
+    }
+
+    .text2 {
+      margin-left: auto;
+      margin-right: 60px;
+      text-align: right;
+    }
+
+    .text3 {
+      margin-right: 30px;
+      flex-shrink: 0;
     }
 
     #slideContent {
