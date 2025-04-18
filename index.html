@@ -277,7 +277,7 @@
   </div>
 
   <div class="slide-box" id="slideBox">
-    <div class="slide-list" onclick="toggleSlideBox()">list</div>
+    <div class="slide-list" id="slideToggleText" onclick="toggleSlideBox()">list</div>
     <div id="slideContent"></div>
   </div>
 
@@ -321,10 +321,7 @@
       gallery.appendChild(item);
     }
 
-    function toggleSlideBox() {
-      const slideBox = document.getElementById("slideBox");
-      slideBox.classList.toggle("active");
-    }
+    const slideContent = document.getElementById("slideContent");
 
     const slideData = [
       ["te cura", "brand design", "2022"],
@@ -340,8 +337,6 @@
       ["Valentine", "graphic design", "2025"]
     ];
 
-    const slideContent = document.getElementById("slideContent");
-
     slideData.forEach(([text1, text2, text3]) => {
       const group = document.createElement("div");
       group.className = "text-group";
@@ -352,6 +347,13 @@
       `;
       slideContent.appendChild(group);
     });
+
+    function toggleSlideBox() {
+      const slideBox = document.getElementById("slideBox");
+      const toggleText = document.getElementById("slideToggleText");
+      slideBox.classList.toggle("active");
+      toggleText.textContent = slideBox.classList.contains("active") ? "close" : "list";
+    }
   </script>
 </body>
 </html>
