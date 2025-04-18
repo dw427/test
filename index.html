@@ -173,6 +173,16 @@
 
     .text1 {
       margin-left: 10px;
+      transition: color 0.3s;
+    }
+
+    .text1 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .text1 a:hover {
+      color: #a3a3a3;
     }
 
     .text2 {
@@ -321,8 +331,6 @@
       gallery.appendChild(item);
     }
 
-    const slideContent = document.getElementById("slideContent");
-
     const slideData = [
       ["te cura", "brand design", "2022"],
       ["a generation that has lost romance", "graphic design", "2023"],
@@ -337,11 +345,13 @@
       ["Valentine", "graphic design", "2025"]
     ];
 
-    slideData.forEach(([text1, text2, text3]) => {
+    const slideContent = document.getElementById("slideContent");
+
+    slideData.forEach(([text1, text2, text3], index) => {
       const group = document.createElement("div");
       group.className = "text-group";
       group.innerHTML = `
-        <div class="text1">${text1}</div>
+        <div class="text1"><a href="detail${index + 1}.html">${text1}</a></div>
         <div class="text2">${text2}</div>
         <div class="text3">${text3}</div>
       `;
