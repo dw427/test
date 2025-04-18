@@ -173,12 +173,12 @@
 
     .text1 {
       margin-left: 30px;
-      margin-right: 40px; /* 여백 추가로 text2랑 안 붙게! */
     }
 
     .text2 {
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: auto;
+      margin-right: 60px;
+      text-align: right;
     }
 
     .text3 {
@@ -352,32 +352,6 @@
       `;
       slideContent.appendChild(group);
     });
-
-    function alignText2() {
-      document.querySelectorAll('.text-group').forEach(group => {
-        const t1 = group.querySelector('.text1');
-        const t2 = group.querySelector('.text2');
-        const t3 = group.querySelector('.text3');
-
-        const rect1 = t1.getBoundingClientRect();
-        const rect2 = t2.getBoundingClientRect();
-        const rect3 = t3.getBoundingClientRect();
-
-        const distLeft = Math.abs(rect2.left - rect1.right);
-        const distRight = Math.abs(rect3.left - rect2.right);
-
-        if (distLeft > distRight) {
-          t2.style.marginLeft = 'auto';
-          t2.style.marginRight = '0';
-        } else {
-          t2.style.marginLeft = '0';
-          t2.style.marginRight = 'auto';
-        }
-      });
-    }
-
-    window.addEventListener('load', alignText2);
-    window.addEventListener('resize', alignText2);
   </script>
 </body>
 </html>
