@@ -200,8 +200,20 @@
       }
     }
   </style>
+
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('dragstart', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('touchstart', function(e) {
+      if (e.touches.length > 1) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+  </script>
 </head>
-<body>
+
+<body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <div class="header-wrap">
     <div class="header">
       <img src="images/header0.png" alt="header" />
