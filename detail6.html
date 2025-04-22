@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>alfoze</title>
-    <style>
+  <style>
     @import url("https://use.typekit.net/zuk4pzv.css");
 
     * { box-sizing: border-box; }
@@ -21,7 +21,6 @@
       color: #a3a3a3;
       overflow-x: hidden;
     }
-
 
     .header-wrap {
       max-width: 1920px;
@@ -154,6 +153,42 @@
         color: #a3a3a3;
       }
     }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+    }
+
+    .modal:target {
+      display: block;
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 3000;
+    }
   </style>
 </head>
 <body>
@@ -165,10 +200,10 @@
 
   <div class="container">
     <div class="content">
-      <img src="images/6-heaven/heaven1.png" alt="heaven1" />
-      <img src="images/6-heaven/heaven2.png" alt="heaven2" />
-      <img src="images/6-heaven/heaven3.png" alt="heaven3" />
-      <img src="images/6-heaven/heaven4.png" alt="heaven4" />
+      <a href="#modal1"><img src="images/6-heaven/heaven1.png" alt="heaven1" /></a>
+      <a href="#modal2"><img src="images/6-heaven/heaven2.png" alt="heaven2" /></a>
+      <a href="#modal3"><img src="images/6-heaven/heaven3.png" alt="heaven3" /></a>
+      <a href="#modal4"><img src="images/6-heaven/heaven4.png" alt="heaven4" /></a>
     </div>
   </div>
 
@@ -182,6 +217,24 @@
       <span class="text3">interview task</span>
       <span class="text4">2024</span>
     </div>
+  </div>
+
+  <!-- Modal Windows -->
+  <div id="modal1" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img class="modal-content" src="images/6-heaven/heaven1.png" alt="">
+  </div>
+  <div id="modal2" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img class="modal-content" src="images/6-heaven/heaven2.png" alt="">
+  </div>
+  <div id="modal3" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img class="modal-content" src="images/6-heaven/heaven3.png" alt="">
+  </div>
+  <div id="modal4" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img class="modal-content" src="images/6-heaven/heaven4.png" alt="">
   </div>
 </body>
 </html>
