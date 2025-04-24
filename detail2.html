@@ -36,6 +36,11 @@
       background: #ffffff;
     }
 
+    .header a {
+      display: block;
+      height: 100%;
+    }
+
     .header img {
       height: 100%;
       width: auto;
@@ -95,6 +100,7 @@
 
     @media (max-width: 768px) {
       .header { height: 80px; }
+      .header a { height: 80px; }
       .header img { height: 80px; }
 
       .footer-inner {
@@ -120,7 +126,6 @@
       }
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -179,7 +184,7 @@
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
   <div class="header-wrap">
     <div class="header">
-      <a href="index.html" style="display:block; height:100%;">
+      <a href="index.html">
         <img src="images/header0.png" alt="header" />
       </a>
     </div>
@@ -187,7 +192,9 @@
 
   <div class="container">
     <div class="content">
-      <img src="images/thumb2.png" alt="상세 이미지 2" />
+      <img src="images/6-heaven/heaven1.png" alt="heaven1" />
+      <img src="images/6-heaven/heaven7.png" alt="heaven2" />
+      <img src="images/6-heaven/heaven8.png" alt="heaven4" />
     </div>
   </div>
 
@@ -196,17 +203,17 @@
       <a href="index.html">
         <img src="images/back.png" alt="back" draggable="false" />
       </a>
-      <span class="text1">a generation that has lost romance</span>
+      <span class="text1">Heaven</span>
       <span class="text2">graphic design</span>
       <span class="text3">interview task</span>
-      <span class="text4">2023</span>
+      <span class="text4">2024</span>
     </div>
   </div>
 
-  <!-- Modal -->
   <div id="modal" class="modal">
     <img id="modal-image" src="" alt="">
     <span id="modal-close" style="position:absolute;top:30px;right:40px;color:white;font-size:40px;cursor:pointer;">&times;</span>
   </div>
 </body>
 </html>
+
