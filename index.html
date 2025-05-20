@@ -204,7 +204,10 @@
       .side { display: none; }
 
       .content {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 0;
+        row-gap: 0;
+        padding: 0;
       }
 
       .thumbnail {
@@ -217,18 +220,6 @@
       }
 
       .caption {
-        font-size: 12px;
-        width: 100%;
-      }
-
-      .caption .title {
-        margin-left: 10px;
-        margin-right: 45px;
-      }
-
-      .caption .year {
-        margin-left: auto;
-        margin-right: 10px;
       }
 
       .header {
