@@ -200,24 +200,13 @@
       padding-top: 13px;
     }
 
-    /* =================
-       반응형 미디어쿼리 (모바일)
-       ================ */
     @media (max-width: 768px) {
       .side { display: none; }
 
-      /* 그리드 2개 열, 여백 없이 꽉 채움 */
       .content {
-        grid-template-columns: repeat(2, 50vw);
-        column-gap: 0;
-        row-gap: 13px;
-        width: 100vw;
-        max-width: 100%;
-        padding: 0;
-        margin: 0 auto;
+        grid-template-columns: 1fr;
       }
 
-      /* 썸네일 넓이 100%, 이미지도 꽉차게 */
       .thumbnail {
         width: 100%;
       }
@@ -227,46 +216,21 @@
         height: auto;
       }
 
-      /* 캡션 구조 변경: 세로로 쌓기, 타이틀 / 카테고리+연도 한 줄 */
       .caption {
-        display: flex;
-        flex-direction: column;
-        margin-top: 10px;
         font-size: 12px;
-        padding-left: 0;
-        padding-right: 0;
+        width: 100%;
       }
 
       .caption .title {
-        margin: 0 0 6px 10px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        margin-left: 10px;
+        margin-right: 45px;
       }
 
-      /* 카테고리와 연도를 쉼표로 한줄에 */
-      .caption .category,
       .caption .year {
-        margin: 0 10px 0 10px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: inline;
-        color: #666666;
-        font-weight: 400;
+        margin-left: auto;
+        margin-right: 10px;
       }
 
-      /* 카테고리, 연도 사이 쉼표 넣기 위해 가상요소 */
-      .caption .category::after {
-        content: ", ";
-      }
-
-      /* 연도 뒤 쉼표 없애기 */
-      .caption .year::after {
-        content: "";
-      }
-
-      /* 헤더, 푸터 높이 조정 */
       .header {
         height: 80px;
       }
