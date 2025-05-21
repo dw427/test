@@ -201,35 +201,45 @@
     }
 
     @media (max-width: 768px) {
-      .side { display: none; }
+  .side { display: none; }
 
-      .content {
-        grid-template-columns: 1fr;
-      }
+  .content {
+    grid-template-columns: repeat(2, 1fr); /* 🔄 한 줄에 두 개씩 */
+    column-gap: 10px;
+    row-gap: 13px;
+    padding: 0 10px;
+  }
 
-      .thumbnail {
-        width: 100%;
-      }
+  .thumbnail {
+    width: 100%;
+  }
 
-      .thumbnail img {
-        width: 100%;
-        height: auto;
-      }
+  .thumbnail img {
+    width: 100%;
+    height: auto;
+  }
 
-      .caption {
-        font-size: 12px;
-        width: 100%;
-      }
+  .caption {
+    font-size: 12px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 13px;
+    padding: 0 10px;
+  }
 
-      .caption .title {
-        margin-left: 10px;
-        margin-right: 45px;
-      }
+  .caption .title {
+    margin-bottom: 5px;
+  }
 
-      .caption .year {
-        margin-left: auto;
-        margin-right: 10px;
-      }
+  .caption .category {
+    display: inline-block;
+    margin-right: 13px;
+  }
+
+  .caption .year {
+    display: inline-block;
+  }
 
       .header {
         height: 80px;
