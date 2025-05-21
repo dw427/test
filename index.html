@@ -201,35 +201,49 @@
     }
 
     @media (max-width: 768px) {
-      .side { display: none; }
+  .side { display: none; }
 
-      .content {
-        grid-template-columns: 1fr;
-      }
+  .content {
+    grid-template-columns: repeat(2, 1fr); /* 두 개 꽉 차게 */
+    column-gap: 0;
+    row-gap: 13px;
+    width: 100%;
+  }
 
-      .thumbnail {
-        width: 100%;
-      }
+  .thumbnail {
+    width: 100%;
+  }
 
-      .thumbnail img {
-        width: 100%;
-        height: auto;
-      }
+  .thumbnail img {
+    width: 100%;
+    height: auto;
+  }
 
-      .caption {
-        font-size: 12px;
-        width: 100%;
-      }
+  .caption {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 0 10px;
+  }
 
-      .caption .title {
-        margin-left: 10px;
-        margin-right: 45px;
-      }
+  .caption .title {
+    margin-bottom: 3px;
+  }
 
-      .caption .year {
-        margin-left: auto;
-        margin-right: 10px;
-      }
+  .caption .category,
+  .caption .year {
+    display: inline;
+  }
+
+  .caption .category::after {
+    content: ",";
+    margin-right: 6px;
+  }
+
+  .caption .year {
+    margin-left: 0;
+  }
 
       .header {
         height: 80px;
