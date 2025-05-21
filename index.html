@@ -62,16 +62,22 @@
 
     .caption {
       display: flex;
+      flex-direction: column;
       margin-top: 13px;
       font-size: 12px;
     }
 
     .caption .title {
-      margin-right: 20px;
+      margin-bottom: 3px;
+    }
+
+    .caption .category-year {
+      display: flex;
+      justify-content: space-between;
     }
 
     .caption .category {
-      margin-right: 60px;
+      margin-right: 13px;
     }
 
     .side {
@@ -200,50 +206,43 @@
       padding-top: 13px;
     }
 
+    /* ✅ 반응형 미디어쿼리 수정된 부분만 정확히 */
     @media (max-width: 768px) {
-  .side { display: none; }
+      .side { display: none; }
 
-  .content {
-    grid-template-columns: repeat(2, 1fr); /* 두 개 꽉 차게 */
-    column-gap: 0;
-    row-gap: 13px;
-    width: 100%;
-  }
+      .content {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 0;
+        row-gap: 13px;
+      }
 
-  .thumbnail {
-    width: 100%;
-  }
+      .thumbnail {
+        width: 100%;
+      }
 
-  .thumbnail img {
-    width: 100%;
-    height: auto;
-  }
+      .thumbnail img {
+        width: 100%;
+        height: auto;
+      }
 
-  .caption {
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    margin-top: 10px;
-    padding: 0 10px;
-  }
+      .caption {
+        font-size: 12px;
+        margin-top: 13px;
+        padding: 0 10px;
+      }
 
-  .caption .title {
-    margin-bottom: 3px;
-  }
+      .caption .title {
+        margin-bottom: 3px;
+      }
 
-  .caption .category,
-  .caption .year {
-    display: inline;
-  }
+      .caption .category-year {
+        display: flex;
+        justify-content: space-between;
+      }
 
-  .caption .category::after {
-    content: ",";
-    margin-right: 6px;
-  }
-
-  .caption .year {
-    margin-left: 0;
-  }
+      .caption .category-year .category {
+        margin-right: 13px;
+      }
 
       .header {
         height: 80px;
@@ -341,8 +340,10 @@
         <img src="images/thumb${index}.png" alt="썸네일${index}" />
         <div class="caption caption-thumb${index}">
           <span class="title">${titles[i - 1]}</span>
-          <span class="category">${categories[i - 1]}</span>
-          <span class="year">${years[i - 1]}</span>
+          <div class="category-year">
+            <span class="category">${categories[i - 1]}</span>
+            <span class="year">${years[i - 1]}</span>
+          </div>
         </div>
       `;
       gallery.appendChild(item);
