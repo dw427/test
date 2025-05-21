@@ -204,8 +204,8 @@
   .side { display: none; }
 
   .content {
-    grid-template-columns: repeat(2, 1fr); /* 두 개씩 꽉 채움 */
-    column-gap: 0; /* 사이 여백 제거 */
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 0;
     row-gap: 13px;
     width: 100%;
     padding: 0;
@@ -226,21 +226,17 @@
   .caption {
     font-size: 12px;
     margin-top: 13px;
-    padding-left: 0; /* 이미지와 정렬 맞춤 */
-    display: flex;
-    flex-direction: column;
+    padding: 0 10px;
   }
 
   .caption .title {
-    padding-left: 0; /* 정렬 일치 */
-    margin: 0 0 5px 0;
+    display: block;
+    margin-bottom: 3px;
   }
 
   .caption .category,
   .caption .year {
     display: inline;
-    padding-left: 0;
-    margin: 0;
   }
 
   .caption .category::after {
@@ -250,9 +246,8 @@
   }
 
   .caption .year {
-    /* category 뒤에 붙음 */
+    /* 이어붙음 */
   }
-
       .header {
         height: 80px;
       }
