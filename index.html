@@ -200,54 +200,37 @@
       padding-top: 13px;
     }
 
-@media (max-width: 768px) {
-  .side { display: none; }
+    @media (max-width: 768px) {
+      .side { display: none; }
 
-  .content {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 0;
-    row-gap: 13px;
-    width: 100%;
-    padding: 0;
-  }
+      .content {
+        grid-template-columns: 1fr;
+      }
 
-  .thumbnail {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
+      .thumbnail {
+        width: 100%;
+      }
 
-  .thumbnail img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+      .thumbnail img {
+        width: 100%;
+        height: auto;
+      }
 
-  .caption {
-    font-size: 12px;
-    margin-top: 13px;
-    padding: 0 10px;
-  }
+      .caption {
+        font-size: 12px;
+        width: 100%;
+      }
 
-  .caption .title {
-    display: block;
-    margin-bottom: 3px;
-  }
+      .caption .title {
+        margin-left: 10px;
+        margin-right: 45px;
+      }
 
-  .caption .category,
-  .caption .year {
-    display: inline;
-  }
+      .caption .year {
+        margin-left: auto;
+        margin-right: 10px;
+      }
 
-  .caption .category::after {
-    content: '';
-    display: inline-block;
-    width: 13px;
-  }
-
-  .caption .year {
-    /* 이어붙음 */
-  }
       .header {
         height: 80px;
       }
