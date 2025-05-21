@@ -200,14 +200,14 @@
       padding-top: 13px;
     }
 
-    @media (max-width: 768px) {
+  @media (max-width: 768px) {
   .side { display: none; }
 
   .content {
-    grid-template-columns: repeat(2, 1fr); /* 🔄 한 줄에 두 개씩 */
+    grid-template-columns: repeat(2, 1fr); /* ✔ 한 줄에 썸네일 2개 */
     column-gap: 10px;
     row-gap: 13px;
-    padding: 0 10px;
+    padding: 0; /* ✔ 여백 없음 */
   }
 
   .thumbnail {
@@ -225,22 +225,27 @@
     display: flex;
     flex-direction: column;
     margin-top: 13px;
-    padding: 0 10px;
   }
 
   .caption .title {
+    margin-left: 10px;
     margin-bottom: 5px;
   }
 
+  .caption .category-year-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+  }
+
   .caption .category {
-    display: inline-block;
-    margin-right: 13px;
+    margin-right: 13px; /* ✔ category와 year 사이 간격 */
   }
 
   .caption .year {
-    display: inline-block;
+    margin: 0;
   }
-
       .header {
         height: 80px;
       }
