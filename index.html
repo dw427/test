@@ -339,13 +339,15 @@
       item.href = `${index}/`;
       item.className = `thumbnail thumb${index}`;
       item.innerHTML = `
-        <img src="images/thumb${index}.png" alt="썸네일${index}" />
-        <div class="caption caption-thumb${index}">
-          <span class="title">${titles[i - 1]}</span>
-          <span class="category">${categories[i - 1]}</span>
-          <span class="year">${years[i - 1]}</span>
-        </div>
-      `;
+  <img src="images/thumb${index}.png" alt="썸네일${index}" />
+  <div class="caption caption-thumb${index}">
+    <span class="title">${titles[i - 1]}</span>
+    <div class="category-year-line">
+      <span class="category">${categories[i - 1]}</span>
+      <span class="year">${years[i - 1]}</span>
+    </div>
+  </div>
+`;
       gallery.appendChild(item);
     }
 
