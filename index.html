@@ -203,39 +203,53 @@
     <div id="slideContent"></div>
   </div>
 
-  <script type="module">
-    // projects.js 파일에서 projectData를 가져옵니다.
-    // 이 줄이 있어야 projects.js 파일의 데이터를 사용할 수 있습니다.
-    import { projectData } from './projects.js';
+  <script>
+    async function loadData() {
+      const res = await fetch("data.json");
+      const data = await res.json();
 
-    document.addEventListener('DOMContentLoaded', () => {
       const gallery = document.getElementById('gallery');
-      
-      // projects.js 파일의 데이터를 사용해 썸네일 생성
-      projectData.forEach(project => {
-        const item = document.createElement('a');
-        item.href = `${project.id}/`;
-        item.className = 'thumbnail thumb' + project.id;
-        item.innerHTML = `<img src="images/thumb${project.id}.png" alt="썸네일${project.id}"/><div class="caption"><span class="title">${project.title}</span><span class="category-year"><span class="category">${project.category}</span><span class="year">${project.year}</span></span></div>`;
-        gallery.append(item);
-      });
+      gallery.innerHTML = "";
 
-      // projects.js 파일의 데이터를 사용해 슬라이드 메뉴 생성
+      // 최신순으로 출력
+      for (let i = data.length; i >= 1; i--) {
+        const d = data[i-1];
+        const item = document.createElement('a');
+        item.href = `${i}/`;
+        item.className = 'thumbnail thumb'+i;
+        item.innerHTML = `
+          <img src="images/thumb${i}.png" alt="썸네일${i}"/>
+          <div class="caption">
+            <span class="title">${d.title}</span>
+            <span class="category-year">
+              <span class="category">${d.category}</span>
+              <span class="year">${d.year}</span>
+            </span>
+          </div>`;
+        gallery.append(item);
+      }
+
       const slideContent = document.getElementById('slideContent');
-      projectData.forEach(project => {
+      slideContent.innerHTML = "";
+      data.forEach((d, idx)=>{
         const g = document.createElement('div');
         g.className = 'text-group';
-        g.innerHTML = `<div class="text1"><a href="${project.id}/">${project.title}</a></div><div class="text2">${project.category}</div><div class="text3">${project.year}</div>`;
+        g.innerHTML = `
+          <div class="text1"><a href="${idx+1}/">${d.title}</a></div>
+          <div class="text2">${d.category}</div>
+          <div class="text3">${d.year}</div>`;
         slideContent.append(g);
       });
+    }
 
-      window.toggleSlideBox = ()=>{
-        const sb = document.getElementById('slideBox');
-        const txt = document.getElementById('slideToggleText');
-        sb.classList.toggle('active');
-        txt.textContent = sb.classList.contains('active') ? 'close' : 'list';
-      };
-    });
+    function toggleSlideBox() {
+      const sb = document.getElementById('slideBox');
+      const txt = document.getElementById('slideToggleText');
+      sb.classList.toggle('active');
+      txt.textContent = sb.classList.contains('active') ? 'close' : 'list';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadData);
   </script>
 </body>
 </html>
