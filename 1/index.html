@@ -183,10 +183,11 @@
       const item = data[idx-1];
       if (!item) return;
 
-      // 썸네일 리스트 영역
+      // 썸네일 리스트 영역 (최신순)
       const gallery = document.getElementById('gallery');
       gallery.innerHTML = "";
-      data.forEach((d, i) => {
+      data.slice().reverse().forEach((d, revIdx) => {
+        const i = data.length - 1 - revIdx; // 원래 index
         const a = document.createElement('a');
         a.href = `/alfoze/${i+1}/`;
         a.className = 'thumbnail thumb' + (i+1);
