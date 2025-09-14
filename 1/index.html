@@ -186,21 +186,22 @@
       // 썸네일 리스트 영역
       const gallery = document.getElementById('gallery');
       gallery.innerHTML = "";
-      data.forEach((d, i) => {
-        const a = document.createElement('a');
-        a.href = `/alfoze/${i+1}/`;
-        a.className = 'thumbnail thumb' + (i+1);
-        a.innerHTML = `
-          <img src="/test/images/thumb${i+1}.png" alt="썸네일${i+1}"/>
-          <div class="caption">
-            <span class="title">${d.title}</span>
-            <span class="category-year">
-              <span class="category">${d.category}</span>
-              <span class="year">${d.year}</span>
-            </span>
-          </div>`;
-        gallery.appendChild(a);
-      });
+      data.for (let i = data.length; i >= 1; i--) {
+  const d = data[i-1];
+  const a = document.createElement('a');
+  a.href = `/alfoze/${i}/`;
+  a.className = 'thumbnail thumb' + i;
+  a.innerHTML = `
+    <img src="/test/images/thumb${i}.png" alt="썸네일${i}"/>
+    <div class="caption">
+      <span class="title">${d.title}</span>
+      <span class="category-year">
+        <span class="category">${d.category}</span>
+        <span class="year">${d.year}</span>
+      </span>
+    </div>`;
+  gallery.appendChild(a);
+});
 
       // info 박스 채우기
       const captionBox = document.getElementById("captionBox");
